@@ -8,8 +8,6 @@ const path = require('path');
 const app = express();
 app.use(express.json());
 
-nción pura sin efectos secundarios.
-
 const normalizeQuery = (raw) => {
   if (typeof raw !== 'string') throw new TypeError('La consulta debe ser un string');
   const trimmed = raw.trim();
