@@ -1,7 +1,4 @@
-/**
- * Motor de Inferencia Lógica como Servicio
- * Integra: Programación Lógica (Prolog/Tau), Funcional (JS), Asíncrona (Node.js)
- */
+
 
 const express = require('express');
 const pl = require('tau-prolog');
@@ -11,13 +8,8 @@ const path = require('path');
 const app = express();
 app.use(express.json());
 
-// ─── Utilidades funcionales (programación funcional) ──────────────────────────
+nción pura sin efectos secundarios.
 
-/**
- * Normaliza una consulta Prolog: asegura que termine con punto,
- * elimina espacios extra, convierte a string si no lo es.
- * Función pura sin efectos secundarios.
- */
 const normalizeQuery = (raw) => {
   if (typeof raw !== 'string') throw new TypeError('La consulta debe ser un string');
   const trimmed = raw.trim();
@@ -25,10 +17,7 @@ const normalizeQuery = (raw) => {
   return trimmed.endsWith('.') ? trimmed : `${trimmed}.`;
 };
 
-/**
- * Transforma una solución Prolog a un objeto JS plano.
- * También función pura: dada la misma solución, retorna el mismo objeto.
- */
+
 const solutionToObject = (session, solution) => {
   if (!solution || solution === false) return null;
   const vars = {};
@@ -38,10 +27,6 @@ const solutionToObject = (session, solution) => {
   return vars;
 };
 
-/**
- * Carga la base de conocimiento desde disco.
- * Retorna el contenido como string.
- */
 const loadKnowledgeBase = (filepath) => {
   if (!fs.existsSync(filepath)) {
     throw new Error(`Base de conocimiento no encontrada: ${filepath}`);
@@ -49,12 +34,8 @@ const loadKnowledgeBase = (filepath) => {
   return fs.readFileSync(filepath, 'utf-8');
 };
 
-// ─── Motor de inferencia (programación lógica + async) ───────────────────────
 
-/**
- * Ejecuta una consulta Prolog de forma asíncrona.
- * Retorna una Promise que resuelve con todas las soluciones encontradas.
- */
+
 const runPrologQuery = (knowledgeBase, queryStr) =>
   new Promise((resolve, reject) => {
     const session = pl.create(1000);
@@ -70,9 +51,9 @@ const runPrologQuery = (knowledgeBase, queryStr) =>
                 success: (answer) => {
                   const result = solutionToObject(session, answer);
                   solutions.push(result || {});
-                  collectAnswers(); // recursión para múltiples soluciones
+                  collectAnswers();
                 },
-                fail: () => resolve(solutions),       // no más soluciones
+                fail: () => resolve(solutions),
                 error: (err) => reject(new Error(`Error en inferencia: ${err}`)),
                 limit: () => resolve(solutions),
               });
@@ -87,15 +68,8 @@ const runPrologQuery = (knowledgeBase, queryStr) =>
     });
   });
 
-// ─── Endpoints REST ───────────────────────────────────────────────────────────
+const KB_PATH = path.join(__dirname, 'base.pl');
 
-const KB_PATH = path.join(__dirname, '..', 'knowledge', 'base.pl');
-
-/**
- * POST /query
- * Body: { "query": "<consulta prolog>" }
- * Response: { success, query, solutions, count, elapsed_ms }
- */
 app.post('/query', async (req, res) => {
   const start = Date.now();
 
@@ -122,10 +96,6 @@ app.post('/query', async (req, res) => {
   }
 });
 
-/**
- * GET /health
- * Verifica que el servicio y la base de conocimiento estén disponibles.
- */
 app.get('/health', (req, res) => {
   const kbExists = fs.existsSync(KB_PATH);
   res.json({
@@ -136,10 +106,7 @@ app.get('/health', (req, res) => {
   });
 });
 
-/**
- * GET /facts
- * Lista los hechos de la base de conocimiento (lectura directa del archivo).
- */
+
 app.get('/facts', (req, res) => {
   try {
     const content = loadKnowledgeBase(KB_PATH);
@@ -149,7 +116,6 @@ app.get('/facts', (req, res) => {
   }
 });
 
-// ─── Inicio del servidor ──────────────────────────────────────────────────────
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
@@ -157,4 +123,4 @@ app.listen(PORT, () => {
   console.log(`[Motor de Inferencia] Base de conocimiento: ${KB_PATH}`);
 });
 
-module.exports = app; // exportado para pruebas
+module.exports = app;
