@@ -1,7 +1,7 @@
 **Requisitos**  
 - **Node.js** >= 16.x  
 - **npm** >= 8.x  
-![](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnEAAAACCAYAAAA3pIp+AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAANklEQVR4nO3OQQmAABRAsSfYxZo/khWsYQLPJrCCNxG2BFtmZquOAAD4i3Ot7mr/egIAwGvXA4qjBdKlX6OKAAAAAElFTkSuQmCC)  
+
 **Instalación local**  
 # 1. Clonar el repositorio  
    
@@ -15,7 +15,7 @@ El servidor queda disponible en http://localhost:3000.
 Para desarrollo con recarga automática:  
 npm run dev  
    
-![](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnEAAAACCAYAAAA3pIp+AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAM0lEQVR4nO3OMQ0AIAwAwZIiBKl1gjacsGCAiZDcTT9+q6oRETMAAPjF6ify6QYAADdyA9/yAyy03KM6AAAAAElFTkSuQmCC)  
+
 **Estructura del proyecto**  
 motor-inferencia-logica/  
  ├── src/  
@@ -25,7 +25,7 @@ motor-inferencia-logica/
  ├── package.json  
  └── README.md  
    
-![](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnEAAAACCAYAAAA3pIp+AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAANUlEQVR4nO3OMQ2AABAAsSNhwgJOUPcjIpnRgQU2QtIq6DIze3UGAMBf3Gu1VcfXEwAAXrseaJEEL8XMiYMAAAAASUVORK5CYII=)  
+
 **Endpoints**  
 POST /query  
 Ejecuta una consulta lógica contra la base de conocimiento.  
@@ -41,12 +41,12 @@ Ejecuta una consulta lógica contra la base de conocimiento.
    "elapsed_ms": 12  
  }  
    
-![](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnEAAAACCAYAAAA3pIp+AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAANUlEQVR4nO3OMQ2AABAAsSNBCkLfE07YGfHAiAU2QtIq6DIzW7UHAMBfnGt1V8fXEwAAXrse4eQF6VhvmPsAAAAASUVORK5CYII=)  
+
 GET /health  
 Verifica el estado del servicio.  
 GET /facts  
 Retorna el contenido de la base de conocimiento.  
-![](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnEAAAACCAYAAAA3pIp+AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAANElEQVR4nO3OMQ0AIAwAwZIgBKnVgjN8dGDBABMhuZt+/JaZIyJmAADwi9VP1NMNAABu1AaU3AUhiyfJeAAAAABJRU5ErkJggg==)  
+
 **Ejemplos de consultas**  
 # ¿Aplica penalización al contrato 1?  
  curl -X POST http://localhost:3000/query \  
