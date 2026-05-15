@@ -2,7 +2,7 @@
   "name": "motor-inferencia-logica",
   "version": "1.0.0",
   "description": "Motor de Inferencia Lógica como Servicio - REST API con Prolog (Tau-Prolog) y Node.js",
-  "main": "src/server.js",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js"
