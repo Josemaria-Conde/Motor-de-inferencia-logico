@@ -1,0 +1,20 @@
+{
+  "name": "motor-inferencia-logica",
+  "version": "1.0.0",
+  "description": "Motor de Inferencia Lógica como Servicio - REST API con Prolog (Tau-Prolog) y Node.js",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "keywords": ["prolog", "inference-engine", "logic-programming", "tau-prolog", "express"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "tau-prolog": "^0.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
