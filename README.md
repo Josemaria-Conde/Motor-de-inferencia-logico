@@ -4,16 +4,16 @@
 
 **Instalación local**  
 # 1. Clonar el repositorio  
-   
+   git clone https://github.com/Josemaria-Conde/Motor-de-inferencia-logico.git
+   
  # 2. Instalar dependencias  
  npm install  
    
- # 3. Iniciar el servidor  
+ # 3. Iniciar el servidor  (en ona segunda consola(terminal))
  npm start  
    
 El servidor queda disponible en http://localhost:3000.  
-Para desarrollo con recarga automática:  
-npm run dev  
+ 
    
 
 **Estructura del proyecto**  
