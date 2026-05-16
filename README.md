@@ -18,10 +18,8 @@ npm run dev
 
 **Estructura del proyecto**  
 motor-inferencia-logica/  
- ├── src/  
- │   └── server.js          # Servidor Express + lógica de integración Prolog  
- ├── knowledge/  
- │   └── base.pl            # Base de conocimiento en Prolog  
+ ├── server.js         # Servidor Express + lógica de integración Prolog   
+ ├── base.pl            # Base de conocimiento en Prolog  
  ├── package.json  
  └── README.md  
    
